@@ -19,6 +19,7 @@ import org.junit.Ignore;
  *
  * @author Cuong
  */
+@Ignore
 public class FootballDataFacadeImplTest {
 
     public FootballDataFacadeImplTest() {

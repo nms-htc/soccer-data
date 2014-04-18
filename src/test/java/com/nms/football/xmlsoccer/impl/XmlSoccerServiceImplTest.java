@@ -31,6 +31,7 @@ import org.junit.Test;
  *
  * @author Cuong
  */
+@Ignore
 public class XmlSoccerServiceImplTest {
     
     public XmlSoccerServiceImplTest() {
