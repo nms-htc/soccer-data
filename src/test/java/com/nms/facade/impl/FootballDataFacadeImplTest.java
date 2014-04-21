@@ -19,7 +19,7 @@ import org.junit.Ignore;
  *
  * @author Cuong
  */
-@Ignore
+//@Ignore
 public class FootballDataFacadeImplTest {
 
     public FootballDataFacadeImplTest() {
@@ -78,13 +78,18 @@ public class FootballDataFacadeImplTest {
     @Test
     public void testUpdateFixtureByDateIntervalAndLeague() {
         System.out.println("updateFixtureByDateIntervalAndLeague");
-        int leagueId = 0;
-        Date startDate = null;
-        Date endDate = null;
-        FootballDataFacadeImpl instance = new FootballDataFacadeImpl();
-        instance.updateFixtureByDateIntervalAndLeague(leagueId, startDate, endDate);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        Date startDate;
+        Date endDate;
+        try {
+            int leagueId = 1;
+            startDate = dateFormat.parse("2014-01-01");
+            endDate = dateFormat.parse("2014-06-30");
+            FootballDataFacadeImpl instance = new FootballDataFacadeImpl();
+            instance.updateFixtureByDateIntervalAndLeague(leagueId, startDate, endDate);
+        } catch (ParseException e) {
+
+        }
     }
 
     @Test
@@ -145,7 +150,7 @@ public class FootballDataFacadeImplTest {
     @Test
     public void testUpdateHistoricMatchesByLeagueAndSession() {
         System.out.println("updateHistoricMatchesByLeagueAndSession");
-        int leagueId = 3;
+        int leagueId = 1;
         String session = "1314";
         FootballDataFacadeImpl instance = new FootballDataFacadeImpl();
         instance.updateHistoricMatchesByLeagueAndSession(leagueId, session);
@@ -168,8 +173,6 @@ public class FootballDataFacadeImplTest {
         System.out.println("updateLiveScore");
         FootballDataFacadeImpl instance = new FootballDataFacadeImpl();
         instance.updateLiveScore();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     @Test
@@ -182,11 +185,10 @@ public class FootballDataFacadeImplTest {
         fail("The test case is a prototype.");
     }
 
-    @Ignore
     @Test
     public void testUpdateTopScoreByLeagueAndSession() {
         System.out.println("updateTopScoreByLeagueAndSession");
-        int leagueId = 3;
+        int leagueId = 1;
         String session = "1314";
         FootballDataFacadeImpl instance = new FootballDataFacadeImpl();
         instance.updateTopScoreByLeagueAndSession(leagueId, session);
