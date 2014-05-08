@@ -27,7 +27,7 @@ public class ConvertUtils {
     }
 
     public static String formatDateToString(Date date) {
-        return formatDateToString(date, "yyyy-mm-dd");
+        return formatDateToString(date, "yyyy-MM-dd");
     }
 
     public static Date parserStringToDate(String value, String pattern) {

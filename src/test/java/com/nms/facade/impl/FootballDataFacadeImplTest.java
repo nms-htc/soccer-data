@@ -5,21 +5,23 @@
  */
 package com.nms.facade.impl;
 
+import com.nms.facade.FootballDataFacade;
+import com.nms.facade.factory.FootballDataFacadeFactory;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.BeforeClass;
 import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  *
  * @author Cuong
  */
-//@Ignore
+@Ignore
 public class FootballDataFacadeImplTest {
 
     public FootballDataFacadeImplTest() {
@@ -37,7 +39,7 @@ public class FootballDataFacadeImplTest {
     @Test
     public void testUpdateLeague() {
         System.out.println("updateLeague");
-        FootballDataFacadeImpl instance = new FootballDataFacadeImpl();
+        FootballDataFacade service = FootballDataFacadeFactory.getInstase();
         instance.updateLeague();
     }
 
