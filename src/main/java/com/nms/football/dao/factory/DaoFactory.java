@@ -9,11 +9,13 @@ import com.nms.football.dao.FixtureDao;
 import com.nms.football.dao.FixtureHistoryDao;
 import com.nms.football.dao.LeagueDao;
 import com.nms.football.dao.TeamDao;
+import com.nms.football.dao.LeagueStandingDao;
 import com.nms.football.dao.TopScoreDao;
 import com.nms.football.dao.impl.FixtureDaoImpl;
 import com.nms.football.dao.impl.FixtureHistoryDaoImpl;
 import com.nms.football.dao.impl.LeagueDaoImpl;
 import com.nms.football.dao.impl.TeamDaoImpl;
+import com.nms.football.dao.impl.LeagueStandingDaoImpl;
 import com.nms.football.dao.impl.TopScoreDaoImpl;
 
 /**
@@ -27,6 +29,7 @@ public class DaoFactory {
     private static LeagueDao leagueDao;
     private static TeamDao teamDao;
     private static TopScoreDao topScoreDao;
+    private static LeagueStandingDao teamLeagueStandingDao;
 
     public static FixtureDao getFixtureDao() {
         if (fixtureDao == null) {
@@ -64,5 +67,12 @@ public class DaoFactory {
             topScoreDao = new TopScoreDaoImpl();
         }
         return topScoreDao;
+    }
+    
+    public static LeagueStandingDao getLeagueStandingDao() {
+        if (teamLeagueStandingDao == null) {
+            teamLeagueStandingDao = new LeagueStandingDaoImpl();
+        }
+        return teamLeagueStandingDao;
     }
 }

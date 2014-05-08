@@ -9,6 +9,7 @@ import com.nms.football.model.Fixture;
 import com.nms.football.model.FixtureHistory;
 import com.nms.football.model.League;
 import com.nms.football.model.Team;
+import com.nms.football.model.LeagueStanding;
 import com.nms.football.model.TopScore;
 import java.util.Date;
 import java.util.List;
@@ -56,4 +57,6 @@ public interface XmlSoccerService {
     public String getOddsByFixtureMatchId2(int fixtureId);
     
     public List<TopScore> getTopScorersByLeagueAndSeason(int leagueId, String session);
+    
+    public List<LeagueStanding> getLeagueStandingBySeason(int leagueId, String season);
 }

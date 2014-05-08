@@ -40,7 +40,7 @@ public class FootballDataFacadeImplTest {
     public void testUpdateLeague() {
         System.out.println("updateLeague");
         FootballDataFacade service = FootballDataFacadeFactory.getInstase();
-        instance.updateLeague();
+        service.updateLeague();
     }
 
     @Ignore
@@ -194,6 +194,15 @@ public class FootballDataFacadeImplTest {
         String session = "1314";
         FootballDataFacadeImpl instance = new FootballDataFacadeImpl();
         instance.updateTopScoreByLeagueAndSession(leagueId, session);
+    }
+    
+    @Test
+    public void testUpdateLeagueStandingByLeagueAndSeason() {
+        System.out.println("updateTopScoreByLeagueAndSession");
+        int leagueId = 14;
+        String session = "1314";
+        FootballDataFacadeImpl instance = new FootballDataFacadeImpl();
+        instance.updateLeagueStandingByLeagueAndSeason(leagueId, session);
     }
 
 }

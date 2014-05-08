@@ -71,6 +71,9 @@ public class XmlSoccerConstants {
             + "/GetOddsByFixtureMatchId2?ApiKey="
             + XMLSOCCER_API_KEY + "&fixtureMatch_Id=%s";
     public static final String GET_TOP_SCORE_BY_LEAGUE_AND_SESSION_TMP = XMLSOCCER_SERVICE_ADDRESS
-            + "/GetTopScorersByLeagueAndSeason?ApiKey=" 
+            + "/GetTopScorersByLeagueAndSeason?ApiKey="
+            + XMLSOCCER_API_KEY + "&league=%s&seasonDateString=%s";
+    public static final String GET_LEAGUE_STANDING_BY_SEASON = XMLSOCCER_SERVICE_ADDRESS
+            + "/GetLeagueStandingsBySeason?ApiKey="
             + XMLSOCCER_API_KEY + "&league=%s&seasonDateString=%s";
 }

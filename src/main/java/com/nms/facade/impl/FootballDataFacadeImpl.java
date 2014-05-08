@@ -10,6 +10,7 @@ import com.nms.football.dao.factory.DaoFactory;
 import com.nms.football.model.Fixture;
 import com.nms.football.model.FixtureHistory;
 import com.nms.football.model.League;
+import com.nms.football.model.LeagueStanding;
 import com.nms.football.model.Team;
 import com.nms.football.model.TopScore;
 import com.nms.football.xmlsoccer.XmlSoccerService;
@@ -124,5 +125,11 @@ public class FootballDataFacadeImpl implements FootballDataFacade {
     public void updateTopScoreByLeagueAndSession(int leagueId, String session) {
         List<TopScore> topScores = xmlSoccerService.getTopScorersByLeagueAndSeason(leagueId, session);
         DaoFactory.getTopScoreDao().saveOrUpdate(topScores);
+    }
+
+    @Override
+    public void updateLeagueStandingByLeagueAndSeason(int leagueId, String season) {
+        List<LeagueStanding> standings = xmlSoccerService.getLeagueStandingBySeason(leagueId, season);
+        DaoFactory.getLeagueStandingDao().saveOrUpdate(standings);
     }
 }

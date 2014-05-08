@@ -8,6 +8,7 @@ package com.nms.football.xmlsoccer.impl;
 import com.nms.football.model.Fixture;
 import com.nms.football.model.FixtureHistory;
 import com.nms.football.model.League;
+import com.nms.football.model.LeagueStanding;
 import com.nms.football.model.Team;
 import com.nms.football.model.TopScore;
 import com.nms.football.util.ConvertUtils;
@@ -15,6 +16,7 @@ import com.nms.football.xmlsoccer.XmlSoccerService;
 import com.nms.football.xmlsoccer.saxhandler.FixtureHistorySaxHandler;
 import com.nms.football.xmlsoccer.saxhandler.FixtureSaxHandler;
 import com.nms.football.xmlsoccer.saxhandler.LeagueSaxHandler;
+import com.nms.football.xmlsoccer.saxhandler.LeagueStandingSaxHandler;
 import com.nms.football.xmlsoccer.saxhandler.TeamSaxHandler;
 import com.nms.football.xmlsoccer.saxhandler.TopScoreSaxHandler;
 import com.nms.football.xmlsoccer.util.ParserTemplate;
@@ -209,6 +211,23 @@ public class XmlSoccerServiceImpl implements XmlSoccerService {
         }
 
         return topScores;
+    }
+
+    @Override
+    public List<LeagueStanding> getLeagueStandingBySeason(int leagueId, String season) {
+        String url = String.format(XmlSoccerConstants.GET_LEAGUE_STANDING_BY_SEASON, leagueId, season);
+
+        ParserTemplate<LeagueStanding> parserTemplate = new ParserTemplate<LeagueStanding>();
+        LeagueStandingSaxHandler saxHandler = new LeagueStandingSaxHandler();
+
+        List<LeagueStanding> leagueStandings = parserTemplate.get(url, saxHandler);
+
+        for (LeagueStanding standing : leagueStandings) {
+            standing.setSeason(season);
+            standing.setLeagueId(leagueId);
+        }
+
+        return leagueStandings;
     }
 
 }

@@ -8,6 +8,7 @@ package com.nms.football.xmlsoccer.impl;
 import com.nms.football.model.Fixture;
 import com.nms.football.model.FixtureHistory;
 import com.nms.football.model.League;
+import com.nms.football.model.LeagueStanding;
 import com.nms.football.model.Team;
 import com.nms.football.model.TopScore;
 import com.nms.football.xmlsoccer.XmlSoccerService;
@@ -33,22 +34,22 @@ import org.junit.Test;
  */
 @Ignore
 public class XmlSoccerServiceImplTest {
-    
+
     public XmlSoccerServiceImplTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -77,7 +78,7 @@ public class XmlSoccerServiceImplTest {
         System.out.println("getAllLeagues");
         XmlSoccerService instance = XmlSoccerServiceFactory.getService();
         List<League> result = instance.getAllLeagues();
-        
+
         assertNotNull(result);
     }
 
@@ -350,5 +351,14 @@ public class XmlSoccerServiceImplTest {
         List<TopScore> result = instance.getTopScorersByLeagueAndSeason(leagueId, session);
         assertTrue(result.size() > 0);
     }
-    
+
+    @Test
+    public void testGetLeagueStandingBySeason() {
+        System.out.println("Start test getLeagueStandingBySeason");
+        int leagueId = 3;
+        String season = "1314";
+        XmlSoccerService servier = XmlSoccerServiceFactory.getService();
+        List<LeagueStanding> resutl = servier.getLeagueStandingBySeason(leagueId, season);
+        assertTrue(resutl.size() > 0);
+    }
 }

@@ -42,4 +42,6 @@ public interface FootballDataFacade {
     public void updateLiveScoreByLeague(int leagueId);
 
     public void updateTopScoreByLeagueAndSession(int leagueId, String session);
+    
+    public void updateLeagueStandingByLeagueAndSeason(int leagueId, String season);
 }
