@@ -61,7 +61,7 @@ public class XmlSoccerServiceImplTest {
     @Test
     public void testCheckApiKey() {
         System.out.println("checkApiKey");
-        XmlSoccerServiceImpl instance = new XmlSoccerServiceImpl();
+        XmlSoccerService instance = XmlSoccerServiceFactory.getService();
         String expResult = "";
         String result = instance.checkApiKey();
         assertEquals(expResult, result);

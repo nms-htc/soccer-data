@@ -27,7 +27,7 @@ public class FixtureHistoryDaoImpl extends BaseDaoImpl<FixtureHistory> implement
                 + "? homefauls, ? homegoaldetails, ? homelineupgoalkeeper, ? homelineupdefense, ? homelineupmidfield, "
                 + "? homelineupforward, ? homelineupsubstitutes, ? homelineupcoach, ? homeyellowcards, ? homeredcards, "
                 + "? hometeamformation, ? awayteam, ? awayteamid, ? awaycorners, ? awaygoals, ? halftimeawaygoals, "
-                + "? awayshorts, ? awayshortontarget, ? awayfauls, ? awaylineupgoalkeeper, ? awaylineupdefense, "
+                + "? awayshorts, ? awayshortontarget, ? awayfauls, ? awaygoaldetails, ? awaylineupgoalkeeper, ? awaylineupdefense, "
                 + "? awaylineupmidfield, ? awaylineupforward, ? awaylineupsubstitutes, ? awaylineupcoach, "
                 + "? awayyellowcards, ? awayredcards, ? awayteamformation, ? hometeamyellowcarddetails, "
                 + "? awayteamyellowcarddetails, ? hometeamredcarddetails, ? awayteamredcarddetails, ? homesubdetails, "
@@ -45,7 +45,7 @@ public class FixtureHistoryDaoImpl extends BaseDaoImpl<FixtureHistory> implement
                 + "a.homeredcards = b.homeredcards, a.hometeamformation = b.hometeamformation, a.awayteam = b.awayteam, "
                 + "a.awayteamid = b.awayteamid, a.awaycorners = b.awaycorners, a.awaygoals = b.awaygoals, "
                 + "a.halftimeawaygoals = b.halftimeawaygoals, a.awayshorts = b.awayshorts, "
-                + "a.awayshortontarget = b.awayshortontarget, a.awayfauls = b.awayfauls, "
+                + "a.awayshortontarget = b.awayshortontarget, a.awayfauls = b.awayfauls, a.awaygoaldetails = b.awaygoaldetails, "
                 + "a.awaylineupgoalkeeper = b.awaylineupgoalkeeper, a.awaylineupdefense = b.awaylineupdefense, "
                 + "a.awaylineupmidfield = b.awaylineupmidfield, a.awaylineupforward = b.awaylineupforward, "
                 + "a.awaylineupsubstitutes = b.awaylineupsubstitutes, a.awaylineupcoach = b.awaylineupcoach, "
@@ -59,7 +59,7 @@ public class FixtureHistoryDaoImpl extends BaseDaoImpl<FixtureHistory> implement
                 + "homegoals, halftimehomegoals, homeshorts, homeshortontarget, homefauls, homegoaldetails, "
                 + "homelineupgoalkeeper, homelineupdefense, homelineupmidfield, homelineupforward, homelineupsubstitutes, "
                 + "homelineupcoach, homeyellowcards, homeredcards, hometeamformation, awayteam, awayteamid, awaycorners, "
-                + "awaygoals, halftimeawaygoals, awayshorts, awayshortontarget, awayfauls, awaylineupgoalkeeper, "
+                + "awaygoals, halftimeawaygoals, awayshorts, awayshortontarget, awayfauls, awaygoaldetails, awaylineupgoalkeeper, "
                 + "awaylineupdefense, awaylineupmidfield, awaylineupforward, awaylineupsubstitutes, awaylineupcoach, "
                 + "awayyellowcards, awayredcards, awayteamformation, hometeamyellowcarddetails, awayteamyellowcarddetails, "
                 + "hometeamredcarddetails, awayteamredcarddetails, homesubdetails, awaysubdetails) "
@@ -68,7 +68,7 @@ public class FixtureHistoryDaoImpl extends BaseDaoImpl<FixtureHistory> implement
                 + "b.homegoaldetails, b.homelineupgoalkeeper, b.homelineupdefense, b.homelineupmidfield, "
                 + "b.homelineupforward, b.homelineupsubstitutes, b.homelineupcoach, b.homeyellowcards, b.homeredcards, "
                 + "b.hometeamformation, b.awayteam, b.awayteamid, b.awaycorners, b.awaygoals, b.halftimeawaygoals, "
-                + "b.awayshorts, b.awayshortontarget, b.awayfauls, b.awaylineupgoalkeeper, b.awaylineupdefense, "
+                + "b.awayshorts, b.awayshortontarget, b.awayfauls, b.awaygoaldetails, b.awaylineupgoalkeeper, b.awaylineupdefense, "
                 + "b.awaylineupmidfield, b.awaylineupforward, b.awaylineupsubstitutes, b.awaylineupcoach, "
                 + "b.awayyellowcards, b.awayredcards, b.awayteamformation, b.hometeamyellowcarddetails, "
                 + "b.awayteamyellowcarddetails, b.hometeamredcarddetails, b.awayteamredcarddetails, b.homesubdetails, "
@@ -112,21 +112,22 @@ public class FixtureHistoryDaoImpl extends BaseDaoImpl<FixtureHistory> implement
             pstm.setInt(30, f.getAwayShorts());
             pstm.setInt(31, f.getAwayShortOnTarget());
             pstm.setInt(32, f.getAwayFauls());
-            pstm.setString(33, f.getAwayLineupGoalkeeper());
-            pstm.setString(34, f.getAwayLineupDefense());
-            pstm.setString(35, f.getAwayLineupMidfield());
-            pstm.setString(36, f.getAwayLineupForward());
-            pstm.setString(37, f.getAwayLineupSubsitutes());
-            pstm.setString(38, f.getAwayLineupCoach());
-            pstm.setInt(39, f.getAwayYellowCards());
-            pstm.setInt(40, f.getAwayRedCards());
-            pstm.setString(41, f.getAwayTeamFormation());
-            pstm.setString(42, f.getHomeTeamYellowCardDetails());
-            pstm.setString(43, f.getAwayTeamYellowCardDetails());
-            pstm.setString(44, f.getHomeTeamRedCardDetails());
-            pstm.setString(45, f.getAwayTeamRedCardDetails());
-            pstm.setString(46, f.getHomeSubDetails());
-            pstm.setString(47, f.getAwaySubDetails());
+            pstm.setString(33, f.getAwayGoalDetais());
+            pstm.setString(34, f.getAwayLineupGoalkeeper());
+            pstm.setString(35, f.getAwayLineupDefense());
+            pstm.setString(36, f.getAwayLineupMidfield());
+            pstm.setString(37, f.getAwayLineupForward());
+            pstm.setString(38, f.getAwayLineupSubsitutes());
+            pstm.setString(39, f.getAwayLineupCoach());
+            pstm.setInt(40, f.getAwayYellowCards());
+            pstm.setInt(41, f.getAwayRedCards());
+            pstm.setString(42, f.getAwayTeamFormation());
+            pstm.setString(43, f.getHomeTeamYellowCardDetails());
+            pstm.setString(44, f.getAwayTeamYellowCardDetails());
+            pstm.setString(45, f.getHomeTeamRedCardDetails());
+            pstm.setString(46, f.getAwayTeamRedCardDetails());
+            pstm.setString(47, f.getHomeSubDetails());
+            pstm.setString(48, f.getAwaySubDetails());
 
             pstm.addBatch();
 

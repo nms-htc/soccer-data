@@ -152,7 +152,7 @@ public class FootballDataFacadeImplTest {
     @Test
     public void testUpdateHistoricMatchesByLeagueAndSession() {
         System.out.println("updateHistoricMatchesByLeagueAndSession");
-        int leagueId = 1;
+        int leagueId = 3;
         String session = "1314";
         FootballDataFacadeImpl instance = new FootballDataFacadeImpl();
         instance.updateHistoricMatchesByLeagueAndSession(leagueId, session);
