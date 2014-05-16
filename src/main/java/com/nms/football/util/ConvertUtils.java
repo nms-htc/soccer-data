@@ -45,26 +45,27 @@ public class ConvertUtils {
         boolean inDST = false;
         
         Calendar cal = DatatypeConverter.parseDateTime(value);
-        int year = cal.get(Calendar.YEAR);
+//        int year = cal.get(Calendar.YEAR);
+//        
+//        Calendar checkCal1 = (Calendar) cal.clone();
+//        Calendar checkCal2 = (Calendar) cal.clone();
+//        
+//        checkCal1.set(Calendar.MONTH, Calendar.MARCH);
+//        checkCal1.set(Calendar.DAY_OF_MONTH, getLastSundayOfMonth(year, Calendar.MARCH));
+//        checkCal1.set(Calendar.HOUR_OF_DAY, 1);
+//        
+//        checkCal2.set(Calendar.MONTH, Calendar.OCTOBER);
+//        checkCal2.set(Calendar.DAY_OF_MONTH, getLastSundayOfMonth(year, Calendar.OCTOBER));
+//        checkCal1.set(Calendar.HOUR_OF_DAY, 1);
+//        
+//        if (cal.after(checkCal1) && cal.before(checkCal2)) {
+//            inDST = true;
+//        }
+//
+//        if (inDST) {
+//            cal.add(Calendar.HOUR, -1);
+//        }
         
-        Calendar checkCal1 = (Calendar) cal.clone();
-        Calendar checkCal2 = (Calendar) cal.clone();
-        
-        checkCal1.set(Calendar.MONTH, Calendar.MARCH);
-        checkCal1.set(Calendar.DAY_OF_MONTH, getLastSundayOfMonth(year, Calendar.MARCH));
-        checkCal1.set(Calendar.HOUR_OF_DAY, 1);
-        
-        checkCal2.set(Calendar.MONTH, Calendar.OCTOBER);
-        checkCal2.set(Calendar.DAY_OF_MONTH, getLastSundayOfMonth(year, Calendar.OCTOBER));
-        checkCal1.set(Calendar.HOUR_OF_DAY, 1);
-        
-        if (cal.after(checkCal1) && cal.before(checkCal2)) {
-            inDST = true;
-        }
-
-        if (inDST) {
-            cal.add(Calendar.HOUR, -1);
-        }
         return cal.getTime();
     }
 
